@@ -1,6 +1,6 @@
 {
   "name": "sveltekit-routegen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "contributors": [
     {
@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@sveltejs/kit": "^2.0.0",
-    "pluggable-codegen": "^0.1.0",
+    "pluggable-codegen": "^0.2.0",
     "svelte": "^5.0.0"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.0.0",
-    "pluggable-codegen": "^0.1.0",
+    "pluggable-codegen": "^0.2.0",
     "prettier": "^3.5.3",
     "publint": "^0.3.2",
     "svelte": "^5.0.0",
