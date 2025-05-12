@@ -61,7 +61,7 @@ the generated file wouldn't exist by then. In that case, you can use the
 ```json5
 {
   // ...
-  "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  check: 'svelte-kit sync && svelte-check --tsconfig ./tsconfig.json',
 }
 ```
 
@@ -70,7 +70,7 @@ You could change that to:
 ```json5
 {
   // ...
-  "check": "svelte-kit sync && pluggable-codegen && svelte-check --tsconfig ./tsconfig.json"
+  check: 'svelte-kit sync && pluggable-codegen && svelte-check --tsconfig ./tsconfig.json',
 }
 ```
 
