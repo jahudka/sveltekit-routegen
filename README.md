@@ -58,7 +58,7 @@ the generated file wouldn't exist by then. In that case, you can use the
 `pluggable-codegen` command to run the codegen. So for example, if your
 `package.json` `scripts` contains something like:
 
-```json lines
+```json5
 {
   // ...
   "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
@@ -67,7 +67,7 @@ the generated file wouldn't exist by then. In that case, you can use the
 
 You could change that to:
 
-```json lines
+```json5
 {
   // ...
   "check": "svelte-kit sync && pluggable-codegen && svelte-check --tsconfig ./tsconfig.json"
@@ -115,7 +115,7 @@ highlight the link which matches the current route.
 export class Link<Route extends RouteId> {
   readonly route: Route;
   readonly params: RouteParams<Route>;
-  toString(): string;
+  toString(): string; // returns the generated URL
 }
 ```
 
