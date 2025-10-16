@@ -1,5 +1,5 @@
 import type { goto as svelteGoTo } from '$app/navigation';
-import { resolveRoute } from '$app/paths';
+import { resolve } from '$app/paths';
 import { page } from '$app/state';
 
 /* Base type defs */
@@ -62,7 +62,7 @@ export abstract class AbstractLink<Map extends RouteMapDefinition, Route extends
 
 /* Internal helpers */
 export function generate(route: string, params: Params, query: Params): string {
-  const path = resolveRoute(route, params);
+  const path = (resolve as any)(route, params) as string;
   const search = new URLSearchParams(query);
   return `${path}${search?.size ? `?${search}` : ''}`;
 }
