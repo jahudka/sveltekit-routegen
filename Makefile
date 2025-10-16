@@ -38,7 +38,7 @@ pretty: lint-fix style-fix
 .PHONY: checks
 checks: lint style types
 
-dist: deps
+dist:
 	node_modules/.bin/svelte-kit sync
 	node_modules/.bin/vite build
 	node_modules/.bin/svelte-package
@@ -46,8 +46,8 @@ dist: deps
 	node_modules/.bin/publint
 
 .PHONY: build
-build: dist
+build: deps dist
 
 .PHONY: publish
-publish: dist
+publish: build
 	npm view "$$( jq -r '.name + "@>=" + .version' package.json )" version >/dev/null 2>&1 || npm publish
