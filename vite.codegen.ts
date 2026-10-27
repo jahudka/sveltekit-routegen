@@ -6,6 +6,10 @@ export default defineConfig({
     dts({
       include: ['src/codegen'],
       exclude: ['src/codegen/template.ts'],
+      outDirs: [
+        { dir: 'dist/codegen', moduleFormat: 'cjs' },
+        { dir: 'dist/codegen', moduleFormat: 'esm' },
+      ],
     }),
   ],
   build: {

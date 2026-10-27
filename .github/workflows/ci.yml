@@ -13,21 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '22'
-      - name: Update NPM
-        run: npm i -g npm@latest
+          node-version: '24'
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.1.2
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build packages # first build
-        run: make
-
-      - name: Check code quality # then check
-        run: make checks
-        # because we need TS to have access to type declarations from the build output
-
+        uses: actions/checkout@v6
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check code quality
+        run: pnpm lint
+      - name: Build packages
+        run: pnpm build
+      - name: Lint packages
+        run: pnpm publint
       - name: Publish packages
         if: github.ref_name == 'main'
-        run: make publish
+        run: pnpm publish

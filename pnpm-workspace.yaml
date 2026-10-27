@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - pluggable-codegen@0.5.1
